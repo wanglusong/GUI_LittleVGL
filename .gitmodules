@@ -1,3 +1,6 @@
 [submodule "lvgl"]
 	path = lvgl
 	url = https://github.com/lvgl/lvgl.git
+[submodule "lv_examples"]
+	path = lv_examples
+	url = https://github.com/wanglusong/GUI_LittleVGL.git

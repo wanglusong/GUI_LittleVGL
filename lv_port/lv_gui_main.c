@@ -56,4 +56,17 @@ void lv_st_theme_Init(void)
     th = lv_theme_get_act();    /*If `LV_THEME_LIVE_UPDATE  1` `th` is not used directly so get the real theme after set*/
     lv_obj_t * scr = lv_cont_create(NULL, NULL);
     lv_disp_load_scr(scr);	
+		
+    /* Create a slider in the center of the display */
+    lv_obj_t * slider = lv_slider_create(scr, NULL);
+    lv_obj_set_width(slider, 200);                        /*Set the width*/
+    lv_obj_align(slider, NULL, LV_ALIGN_CENTER, 0, 0);    /*Align to the center of the parent (screen)*/
+    lv_obj_set_event_cb(slider, slider_event_cb);         /*Assign an event function*/
+
+    /* Create a label below the slider */
+    label = lv_label_create(scr, NULL);
+    lv_label_set_text(label, "0");
+    lv_obj_set_auto_realign(slider, true);                          /*To keep center alignment when the width of the text changes*/
+    lv_obj_align(label, slider, LV_ALIGN_OUT_BOTTOM_MID, 0, 20);    /*Align below the slider*/
+
 }

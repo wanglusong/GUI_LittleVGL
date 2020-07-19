@@ -20,8 +20,8 @@
  *====================*/
 
 /* Maximal horizontal and vertical resolution to support by the library.*/
-#define LV_HOR_RES_MAX          (240)
-#define LV_VER_RES_MAX          (320)
+#define LV_HOR_RES_MAX          (128)
+#define LV_VER_RES_MAX          (128)
 
 /* Color depth:
  * - 1:  1 byte per pixel
@@ -80,7 +80,7 @@ typedef int16_t lv_coord_t;
 #define LV_MEM_CUSTOM      0
 #if LV_MEM_CUSTOM == 0
 /* Size of the memory used by `lv_mem_alloc` in bytes (>= 2kB)*/
-#  define LV_MEM_SIZE    (16U * 1024U)
+#  define LV_MEM_SIZE    (32U * 1024U)
 
 /* Complier prefix for a big array declaration */
 #  define LV_MEM_ATTR
@@ -176,14 +176,14 @@ typedef void * lv_group_user_data_t;
 #endif  /*LV_USE_GROUP*/
 
 /* 1: Enable GPU interface*/
-#define LV_USE_GPU              1   /*Only enables `gpu_fill_cb` and `gpu_blend_cb` in the disp. drv- */
+#define LV_USE_GPU              0   /*Only enables `gpu_fill_cb` and `gpu_blend_cb` in the disp. drv- */
 #define LV_USE_GPU_STM32_DMA2D  0
 /*If enabling LV_USE_GPU_STM32_DMA2D, LV_GPU_DMA2D_CMSIS_INCLUDE must be defined to include path of CMSIS header of target processor
 e.g. "stm32f769xx.h" or "stm32f429xx.h" */
 #define LV_GPU_DMA2D_CMSIS_INCLUDE
 
 /* 1: Enable file system (might be required for images */
-#define LV_USE_FILESYSTEM       1
+#define LV_USE_FILESYSTEM       0
 #if LV_USE_FILESYSTEM
 /*Declare the type of the user data of file system drivers (can be e.g. `void *`, `int`, `struct`)*/
 typedef void * lv_fs_drv_user_data_t;
@@ -281,7 +281,7 @@ typedef void * lv_indev_drv_user_data_t;            /*Type of user data in the i
  *===============*/
 
 /*1: Enable the log module*/
-#define LV_USE_LOG      0
+#define LV_USE_LOG      1
 #if LV_USE_LOG
 /* How important log should be added:
  * LV_LOG_LEVEL_TRACE       A lot of logs to give detailed information
